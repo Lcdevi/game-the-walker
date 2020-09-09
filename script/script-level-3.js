@@ -642,8 +642,16 @@ function createRulesPopup() {
     const mainDivRulesPart = document.getElementById("game-place");
     newDiv.classList.add("rules");
     newDiv.innerHTML += 
-    `<img src="./images/times-solid.svg" alt="black-cross" width='28px' class='black-cross'>
-    <h3> THE RULES </h3>`
+    `<img src="./images/times-solid.svg" alt="black-cross" width='25px' class='black-cross'>
+    <h3> THE RULES </h3>
+    <br><br>
+    <p> Take all the<div id="rules-life"></div>
+    <br>
+    Be careful of the <div id="rules-wolf"></div>
+    <br><br>
+    or calm them with the <div id="rules-moon"></div>
+    </p>
+    `
     mainDivRulesPart.appendChild(newDiv);
     const crossImg = document.querySelector('.black-cross');
     crossImg.addEventListener('click', event => {
