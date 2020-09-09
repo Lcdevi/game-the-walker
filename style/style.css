@@ -195,7 +195,11 @@ button:focus {
 }
 
 body {
-    background-color: rgb(139, 139, 139);
+  background-color: #001a32;
+  /*
+  background: rgb(0,17,32);
+  background: linear-gradient(180deg, rgba(0,17,32,1) 0%, rgba(0,88,164,1) 72%, rgba(255,255,255,1) 100%);
+  */
 }
 
 
@@ -227,7 +231,7 @@ body {
     align-items: center;
     width: 204px;
     height: 84px; 
-    border: 2px solid black
+    border: 2px solid white;
 }
 
 .main-content-level-2 {
@@ -238,7 +242,7 @@ body {
     align-items: center;
     width: 244px;
     height: 204px; 
-    border: 2px solid black
+    border: 2px solid white;
 }
 
 .main-content-level-3 {
@@ -249,7 +253,7 @@ body {
     align-items: center;
     width: 464px;
     height: 464px; 
-    border: 2px solid black;
+    border: 2px solid white;
 }
 
 
@@ -428,7 +432,7 @@ h1 {
   height: 240px;
   position: absolute;
   background-color: white;
-  top: calc(100%2);
+  top: 40px;
   left: calc(100%2);
   padding: 30px;
   font-size: 20px;
@@ -441,7 +445,7 @@ h1 {
   height: 400px;
   position: absolute;
   background-color: white;
-  top: calc(100%2);
+  top: 50px;
   left: calc(100%2);
   padding: 20px;
   font-size: 20px;
@@ -486,4 +490,10 @@ h3 {
 .btn:hover {
   -webkit-animation: rotate-hor-center 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
   animation: rotate-hor-center 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+#title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
