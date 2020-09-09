@@ -1,7 +1,7 @@
 const mainContent = document.querySelector('.main-content');
 mainContent.classList.add('main-content-level-1');
 let displayScore = document.getElementById('score');
-let score = 1;
+let score = 5;
 displayScore.innerHTML = score;
 //push toutes les divs dans cet array pour pouvoir retrouver chaque div avec un index.
 //const arrayOfDiv = []; 
@@ -245,7 +245,7 @@ function beginWolfFriend() {
 function takeLife() {
     if (nodeListOfDivs[walker.index].classList.contains('life')) {
         nodeListOfDivs[walker.index].classList.remove('life')
-        score = score + 1;
+        score = score + 5;
         displayScore.innerHTML = score;
       }
 }

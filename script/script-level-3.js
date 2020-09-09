@@ -253,6 +253,7 @@ window.addEventListener('keydown', (event) => {
     } 
     beginWolfFriend();
     takeLife();
+    gameOver()
 }
 );
 
@@ -272,7 +273,7 @@ function beginWolfFriend() {
 function takeLife() {
     if (nodeListOfDivs[walker.index].classList.contains('life')) {
         nodeListOfDivs[walker.index].classList.remove('life')
-        score = score + 1;
+        score = score + 5;
         displayScore.innerHTML = score;
       }
 }
@@ -393,5 +394,36 @@ function moveWolves(wolf){
         score = score - 1;
         displayScore.innerHTML = score;
     }
+    gameOver()
   }, wolf.speed) // speed of the set interval function
+}
+
+// -------------------- GAME OVER FUNCTION ---------------
+
+function gameOver(){
+   if(score<=0){
+        setTimeout(() => {
+            createGameOverDiv()
+            wolvesArr.forEach(wolf => clearInterval(wolf.timerId))
+          //  document.removeEventListener('keyup', movePacman)
+            score = 0;
+        }, 500);
+    }
+    }
+
+function createGameOverDiv() {
+    const newDiv = document.createElement('div');
+    const mainDiv = document.querySelector(".main-content");
+    newDiv.classList.add("game-over");
+    //newDiv.classList.add("scale-in-center");
+    newDiv.innerHTML += 
+    `<h1> GAME OVER </h1>
+    <br>
+    <button> try again </button>`
+    mainDiv.appendChild(newDiv);
+   // const crossImg = document.querySelector('.black-cross');
+   // crossImg.addEventListener('click', event => {
+   //     mainDiv.removeChild(newDiv);
+   //    });
+
 }

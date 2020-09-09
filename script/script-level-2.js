@@ -3,7 +3,7 @@ mainContent.classList.add('main-content-level-2');
 
 // ----------------- SCORE DISPLAY AND SCOR INIT ---------------------------------
 let displayScore = document.getElementById('score');
-let score = 5;
+let score = 10;
 displayScore.innerHTML = score;
 
 // ----------------- INIT POSITION OF THE WALKER ---------------------------------
@@ -174,7 +174,7 @@ function beginWolfFriend() {
 function takeLife() {
     if (nodeListOfDivs[walker.index].classList.contains('life')) {
         nodeListOfDivs[walker.index].classList.remove('life')
-        score = score + 1;
+        score = score + 5;
         displayScore.innerHTML = score;
       }
 }
