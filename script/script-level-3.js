@@ -92,7 +92,7 @@ function moveWalker(event){
         console.log('right press');
         if (nodeListOfDivs[walker.index] === nodeListOfDivs[45] && !nodeListOfDivs[33].classList.contains('life')
             && !nodeListOfDivs[300].classList.contains('life') && !nodeListOfDivs[458].classList.contains('life')) {
-            alert("you win, you can go to the next level")
+                nextLevel();
         }
      
         if (nodeListOfDivs[walker.index+1].classList.contains('chemin')
@@ -590,7 +590,6 @@ function createGameOverDiv() {
     const newDiv = document.createElement('div');
     const mainDiv = document.querySelector(".main-content");
     newDiv.classList.add("game-over");
-    //newDiv.classList.add("scale-in-center");
     newDiv.innerHTML += 
     `<h1> GAME OVER </h1>
     <br>
@@ -600,5 +599,29 @@ function createGameOverDiv() {
    // crossImg.addEventListener('click', event => {
    //     mainDiv.removeChild(newDiv);
    //    });
+}
 
+// ----------------- NEXT LEVEL FUCNTION ------------
+function nextLevel(){
+    window.removeEventListener('keydown', moveWalker)
+    createNextLevelDiv()
+    setTimeout(() => {
+        wolvesArr.forEach(wolf => clearInterval(wolf.timerId))
+    }, 500);
+         
+     }
+
+function createNextLevelDiv() {
+    const newDiv = document.createElement('div');
+    const mainDiv = document.querySelector(".main-content");
+    newDiv.classList.add("next-level");
+    newDiv.innerHTML += 
+    `<p> Perfect, you can go to the next level </p>
+    <button> try again </button>
+    <button> next level </button>`
+    mainDiv.appendChild(newDiv);
+   // const crossImg = document.querySelector('.black-cross');
+   // crossImg.addEventListener('click', event => {
+   //     mainDiv.removeChild(newDiv);
+   //    });
 }
