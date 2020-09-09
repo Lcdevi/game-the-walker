@@ -625,3 +625,64 @@ function createNextLevelDiv() {
    //     mainDiv.removeChild(newDiv);
    //    });
 }
+
+// ----------------- RULES FUNCTION ------------
+const rulesBtn = document.getElementById("rules")
+function rulesPopup(){
+    window.removeEventListener('keydown', moveWalker)
+    createRulesPopup();
+    setTimeout(() => {
+        wolvesArr.forEach(wolf => clearInterval(wolf.timerId))
+    }, 500);
+         
+     }
+
+function createRulesPopup() {
+    const newDiv = document.createElement('div');
+    const mainDivRulesPart = document.getElementById("game-place");
+    newDiv.classList.add("rules");
+    newDiv.innerHTML += 
+    `<img src="./images/times-solid.svg" alt="black-cross" width='28px' class='black-cross'>
+    <h3> THE RULES </h3>
+    <button> try again </button>
+    <button> next level </button>`
+    mainDivRulesPart.appendChild(newDiv);
+    const crossImg = document.querySelector('.black-cross');
+    crossImg.addEventListener('click', event => {
+        mainDivRulesPart.removeChild(newDiv);
+       });
+}
+
+rulesBtn.addEventListener('click', event => {
+    rulesPopup()
+  });
+
+
+// ----------------- MAP FUNCTION ------------
+const mapBtn = document.getElementById("map")
+function mapPopup(){
+    window.removeEventListener('keydown', moveWalker)
+    createMapPopup();
+    setTimeout(() => {
+        wolvesArr.forEach(wolf => clearInterval(wolf.timerId))
+    }, 500);
+         
+     }
+
+function createMapPopup() {
+    const newDiv = document.createElement('div');
+    const mainDivMapPart = document.getElementById("game-place");
+    newDiv.classList.add("map");
+    newDiv.innerHTML += 
+    `<img src="./images/times-solid.svg" alt="black-cross" width='28px' class='black-cross'>
+    <h3> MAAAAP </h3>`
+    mainDivMapPart.appendChild(newDiv);
+    const crossImg = document.querySelector('.black-cross');
+    crossImg.addEventListener('click', event => {
+        mainDivMapPart.removeChild(newDiv);
+       });
+}
+
+mapBtn.addEventListener('click', event => {
+    mapPopup()
+  });
