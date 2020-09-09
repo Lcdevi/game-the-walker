@@ -592,8 +592,8 @@ function createGameOverDiv() {
     const mainDiv = document.querySelector(".main-content");
     newDiv.classList.add("game-over");
     newDiv.innerHTML += 
-    `<h1> GAME OVER </h1>
-    <br>
+    `<img src="./images/wolf-bad.png" alt="" width="30%">
+    <h1> GAME OVER </h1>
     <button> try again </button>`
     mainDiv.appendChild(newDiv);
    // const crossImg = document.querySelector('.black-cross');
@@ -617,7 +617,8 @@ function createNextLevelDiv() {
     const mainDiv = document.querySelector(".main-content");
     newDiv.classList.add("next-level");
     newDiv.innerHTML += 
-    `<p> Perfect, you can go to the next level </p>
+    `<img src="./images/sylvain-trans.png" alt="" width="30%">
+    <p> Well, you're still alive, you can move on </p>
     <button> next level </button>`
     mainDiv.appendChild(newDiv);
    // const crossImg = document.querySelector('.black-cross');
