@@ -573,6 +573,7 @@ function moveWolves(wolf){
   }, wolf.speed) // speed of the set interval function
 }
 
+
 // -------------------- GAME OVER FUNCTION ---------------
 
 function gameOver(){
@@ -617,7 +618,6 @@ function createNextLevelDiv() {
     newDiv.classList.add("next-level");
     newDiv.innerHTML += 
     `<p> Perfect, you can go to the next level </p>
-    <button> try again </button>
     <button> next level </button>`
     mainDiv.appendChild(newDiv);
    // const crossImg = document.querySelector('.black-cross');
@@ -626,7 +626,7 @@ function createNextLevelDiv() {
    //    });
 }
 
-// ----------------- RULES FUNCTION ------------
+// ----------------- RULES BUTTON FUNCTION ------------
 const rulesBtn = document.getElementById("rules")
 function rulesPopup(){
     window.removeEventListener('keydown', moveWalker)
@@ -643,23 +643,29 @@ function createRulesPopup() {
     newDiv.classList.add("rules");
     newDiv.innerHTML += 
     `<img src="./images/times-solid.svg" alt="black-cross" width='28px' class='black-cross'>
-    <h3> THE RULES </h3>
-    <button> try again </button>
-    <button> next level </button>`
+    <h3> THE RULES </h3>`
     mainDivRulesPart.appendChild(newDiv);
     const crossImg = document.querySelector('.black-cross');
     crossImg.addEventListener('click', event => {
         mainDivRulesPart.removeChild(newDiv);
+        window.addEventListener('keydown', moveWalker);
+        wolvesArr.forEach(eachWolf => moveWolves(eachWolf))
+        document.getElementById("rules").disabled = false;
+        document.getElementById("map").disabled = false;  
        });
 }
 
 rulesBtn.addEventListener('click', event => {
     rulesPopup()
+    document.getElementById("rules").disabled = true;
+    document.getElementById("map").disabled = true;  
   });
 
 
-// ----------------- MAP FUNCTION ------------
+
+// ----------------- MAP BUTTON FUNCTION ------------
 const mapBtn = document.getElementById("map")
+
 function mapPopup(){
     window.removeEventListener('keydown', moveWalker)
     createMapPopup();
@@ -680,9 +686,15 @@ function createMapPopup() {
     const crossImg = document.querySelector('.black-cross');
     crossImg.addEventListener('click', event => {
         mainDivMapPart.removeChild(newDiv);
+        window.addEventListener('keydown', moveWalker);
+        wolvesArr.forEach(eachWolf => moveWolves(eachWolf))
+        document.getElementById("rules").disabled = false;
+        document.getElementById("map").disabled = false;  
        });
 }
 
 mapBtn.addEventListener('click', event => {
     mapPopup()
+    document.getElementById("rules").disabled = true;
+    document.getElementById("map").disabled = true;  
   });

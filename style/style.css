@@ -147,8 +147,33 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+button:hover {
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+button:active {
+  outline: none;
+  border: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
 body {
     background-color: rgb(139, 139, 139);
+}
+
+
+.chemin {
+  /* background-image: url('../images/sand.gif');
+   background-repeat:no-repeat;
+   background-size:cover;
+   */
+   background-color: white;
+ 
 }
 
 .main-content {
@@ -191,42 +216,32 @@ body {
 }
 
 .wall {
-  background-image: url('../images/vegetation.gif');
+  background-image: url('../images/vegetation-black.gif');
   background-repeat:no-repeat;
   background-size:cover;
 }
 
 .life {
-    background-color: red;
-    width: 20px;
-    height: 20px;
-    -webkit-animation: blink-1 2s both;
-    animation: blink-1 2s both;
+  background: rgb(24,43,98);
+  background: radial-gradient(circle, rgba(24,43,98,1) 22%, rgba(255,255,255,1) 79%);
 }
+
 
 .wolf-friend {
-  background-color: pink;
-  width: 20px;
-  height: 20px;
-  -webkit-animation: blink-1 2s both;
-  animation: blink-1 2s both;
+  background-image: url('../images/big-moon.gif');
+  background-repeat:no-repeat;
+  background-size:cover;
 }
 
-.chemin {
-   /* background-image: url('../images/sand.gif');
-    background-repeat:no-repeat;
-    background-size:cover;
-    */
-    background-color: white;
-  
-}
+
 
 .wolf {
-    border-radius: 50%;
+   
 }
 
 .open-wall {
-    background-color: orange;
+  background: rgb(226,102,0);
+  background: linear-gradient(180deg, rgba(226,102,0,1) 28%, rgba(255,255,255,1) 100%);
 }
 
 .walker-right {
@@ -254,33 +269,39 @@ body {
 }
 
 .merlin {
-    background-color: rgb(46, 46, 46);
-    border: 0px;
+  background-image: url('../images/wolf-tete.gif');
+  background-repeat:no-repeat;
+  background-size:cover;
 }
 
 .perceval {
-    background-color: grey;
-    border: 0px;
+  background-image: url('../images/wolf-tete.gif');
+  background-repeat:no-repeat;
+  background-size:cover;
 }
 
 .lancelot {
-  background-color: rgb(0, 0, 0);
-  border: 0px;
+  background-image: url('../images/wolf-tete.gif');
+  background-repeat:no-repeat;
+  background-size:cover;
 }
 
 .karadok {
-  background-color: rgb(73, 73, 73);
-  border: 0px;
+  background-image: url('../images/wolf-tete.gif');
+  background-repeat:no-repeat;
+  background-size:cover;
 }
 
 .yvain {
-  background-color: rgb(54, 0, 0);
-  border: 0px;
+  background-image: url('../images/wolf-tete.gif');
+  background-repeat:no-repeat;
+  background-size:cover;
 }
 
 .gauvain {
-  background-color: rgb(54, 0, 0);
-  border: 0px;
+  background-image: url('../images/wolf-tete.gif');
+  background-repeat:no-repeat;
+  background-size:cover;
 }
 
 /*
