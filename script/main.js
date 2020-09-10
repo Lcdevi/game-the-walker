@@ -42,7 +42,7 @@ or calm them with the <div id="rules-moon"></div>
         popUp = 1;
         console.log("main croix")
         mainDivRulesPart.removeChild(newDiv);
-        window.addEventListener('keydown', moveWalker);
+     //   window.addEventListener('keydown', moveWalker);
         document.getElementById("rules").disabled = false;
         document.getElementById("map").disabled = false;
     });
