@@ -5,7 +5,7 @@ mainContent.classList.add('main-content-level-4');
 
 // ----------------- SCORE DISPLAY AND SCOR INIT ---------------------------------
 let displayScore = document.getElementById('score');
-let score = 1;
+let score = 5;
 displayScore.innerHTML = score;
 
 // ----------------- INIT POSITION OF THE WALKER ---------------------------------
