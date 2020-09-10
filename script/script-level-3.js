@@ -578,34 +578,35 @@ function moveWolves(wolf){
 
 function gameOver(){
    if(score<=0){
-    window.removeEventListener('keydown', moveWalker)
-        setTimeout(() => {
-            createGameOverDiv()
+    window.removeEventListener('keydown', moveWalker);
+    createGameOverDiv();
+        setTimeout(() => {    
             wolvesArr.forEach(wolf => clearInterval(wolf.timerId))
         }, 500);   
     }
 }
 
 function createGameOverDiv() {
-    const newDiv = document.createElement('div');
-    const mainDiv = document.querySelector(".main-content");
-    newDiv.classList.add("game-over");
-    newDiv.innerHTML += 
-    `<img src="./images/wolf-bad.png" alt="" width="30%">
-    <h1> GAME OVER </h1>
-    <button id="try-again-btn"> => try again <= </button>`
-    mainDiv.appendChild(newDiv);
-    const btnTryAgain = document.getElementById('try-again-btn')
-    btnTryAgain.addEventListener('click', ()=> {
-        console.log("TRY AGAIN")
-        reset
-    })
+    if(!document.querySelector('.game-over')) {
+        const newDiv = document.createElement('div');
+        const mainDiv = document.querySelector(".main-content");
+        newDiv.classList.add("game-over");
+        newDiv.innerHTML = 
+        `<img src="./images/wolf-bad.png" alt="" width="30%">
+        <h1> GAME OVER </h1>
+        <button id="try-again-btn"> => try again <= </button>`
+        mainDiv.appendChild(newDiv);
+        const btnTryAgain = document.getElementById('try-again-btn')
+        btnTryAgain.addEventListener('click', reset)
+    
+    }
 }
 
 // -------------------- RESET FUNCTIONS---------------
 
 function reset() {
-    console.log("yp")
+    console.log("TRY AGAIN")
+    /*
     score = 1;
     displayScore.innerHTML = score;
     nodeListOfDivs[walker.index].classList.add('chemin')
@@ -613,10 +614,15 @@ function reset() {
     walker.index = 483;
     nodeListOfDivs[walker.index].classList.add('walker-right')
     window.addEventListener('keydown', moveWalker);
+   // moveWolves()
     replaceWolves()
     replaceOpenWall()
     replaceLife()
+*/
+    location.reload(true);
 }
+
+
 
 function replaceWolves(){
     wolvesArr.forEach(eachWolf => {
@@ -671,7 +677,7 @@ function nextLevel(){
     }, 500);
          
      }
- 
+
 function createNextLevelDiv() {
     const newDiv = document.createElement('div');
     const mainDiv = document.querySelector(".main-content");
