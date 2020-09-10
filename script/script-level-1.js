@@ -1,3 +1,14 @@
+// Create new script element
+const script = document.createElement('script');
+script.src = './script/script-level-2.js';
+
+// Append to the `head` element
+//document.head.appendChild(script);
+
+
+
+
+
 const mainContent = document.querySelector('.main-content');
 mainContent.classList.add('main-content-level-1');
 let displayScore = document.getElementById('score');
@@ -40,9 +51,7 @@ function createGrid() {
           newDiv.classList.add('open-wall')
         } else if (grid[i][j] === '5') {
           newDiv.classList.add('walker-right')   
-        } else if (grid[i][j] === '6') {
-          newDiv.classList.add('wolf-friend')   
-        }
+        } 
       }
     }
 }
@@ -52,11 +61,13 @@ createGrid();
 const nodeListOfDivs = mainContent.querySelectorAll('.div')
 console.log(nodeListOfDivs)
 
-window.addEventListener('keydown', (event) => {
+
+function moveWalker(event){
+
     if (event.key === 'ArrowRight') { 
         console.log('right press');
         if (nodeListOfDivs[walker.index] === nodeListOfDivs[29] && !nodeListOfDivs[14].classList.contains('life')) {
-            alert("you win, you can go to the next level")
+            nextLevel();
         }
      
         if (nodeListOfDivs[walker.index+1].classList.contains('chemin')
@@ -224,22 +235,13 @@ window.addEventListener('keydown', (event) => {
             nodeListOfDivs[86].classList.remove('wall'); 
         } 
     } 
-    beginWolfFriend();
     takeLife();
 }
-);
 
-// -------- CREATE A FUNCTION FOR THE MOMENT WHERE THE WALKER TAKES THE PINK SQUARE ------------------
-function beginWolfFriend() {
-    if (nodeListOfDivs[walker.index].classList.contains('wolf-friend')) {
-        nodeListOfDivs[walker.index].classList.remove('walker-right','walker-left','walker-down','walker-up')
-        nodeListOfDivs[walker.index].classList.add('chemin')
-        nodeListOfDivs[walker.index].classList.remove('wolf-friend')
-        nodeListOfDivs[walker.index].classList.add('walker-right') 
-        score = score + 50;
-        displayScore.innerHTML = score;
-      }
-}
+window.addEventListener('keydown', moveWalker);
+
+
+
 
 // -------- CREATE A FUNCTION FOR THE MOMENT WHERE THE WALKER TAKES THE LIFE SQUARE ------------------
 function takeLife() {
@@ -249,3 +251,103 @@ function takeLife() {
         displayScore.innerHTML = score;
       }
 }
+
+
+// ----------------- NEXT LEVEL FUNCTION ------------
+function nextLevel(){
+    window.removeEventListener('keydown', moveWalker)
+    createNextLevelDiv()
+     }
+
+function createNextLevelDiv() {
+    const newDiv = document.createElement('div');
+    const mainDiv = document.querySelector(".main-content");
+    newDiv.classList.add("next-level");
+    newDiv.innerHTML += 
+    `<img src="./images/sylvain-trans.png" alt="" width="30%">
+    <p> Well, you're still alive, you can move on </p>
+    <button id="btn-next-level"> next level => </button>`
+    mainDiv.appendChild(newDiv);
+    const btnNextLevel = document.getElementById('btn-next-level')
+    btnNextLevel.addEventListener('click', ()=> {
+      //  document.head.appendChild(script);
+      //  script.addEventListener('load', function() {
+            console.log("TO THE NEXT LEVEL")
+      //      mainDiv.removeChild(newDiv);
+      //  });
+
+    })
+}
+
+
+// ----------------- RULES BUTTON FUNCTION ------------
+const rulesBtn = document.getElementById("rules")
+function rulesPopup(){
+    window.removeEventListener('keydown', moveWalker)
+    createRulesPopup();
+         
+     }
+
+function createRulesPopup() {
+    const newDiv = document.createElement('div');
+    const mainDivRulesPart = document.getElementById("game-place");
+    newDiv.classList.add("rules");
+    newDiv.innerHTML += 
+    `<img src="./images/times-solid.svg" alt="black-cross" width='25px' class='black-cross'>
+    <h3> THE RULES </h3>
+    <br><br>
+    <p> Take all the<div id="rules-life"></div>
+    <br>
+    Be careful of the <div id="rules-wolf"></div>
+    <br><br>
+    or calm them with the <div id="rules-moon"></div>
+    </p>
+    `
+    mainDivRulesPart.appendChild(newDiv);
+    const crossImg = document.querySelector('.black-cross');
+    crossImg.addEventListener('click', event => {
+        mainDivRulesPart.removeChild(newDiv);
+        window.addEventListener('keydown', moveWalker);
+        document.getElementById("rules").disabled = false;
+        document.getElementById("map").disabled = false;  
+       });
+}
+
+rulesBtn.addEventListener('click', event => {
+    rulesPopup()
+    document.getElementById("rules").disabled = true;
+    document.getElementById("map").disabled = true;  
+  });
+
+
+
+// ----------------- MAP BUTTON FUNCTION ------------
+const mapBtn = document.getElementById("map")
+
+function mapPopup(){
+    window.removeEventListener('keydown', moveWalker)
+    createMapPopup();
+     }
+
+function createMapPopup() {
+    const newDiv = document.createElement('div');
+    const mainDivMapPart = document.getElementById("game-place");
+    newDiv.classList.add("map");
+    newDiv.innerHTML += 
+    `<img src="./images/times-solid.svg" alt="black-cross" width='28px' class='black-cross'>
+    <h3> MAAAAP </h3>`
+    mainDivMapPart.appendChild(newDiv);
+    const crossImg = document.querySelector('.black-cross');
+    crossImg.addEventListener('click', event => {
+        mainDivMapPart.removeChild(newDiv);
+        window.addEventListener('keydown', moveWalker);
+        document.getElementById("rules").disabled = false;
+        document.getElementById("map").disabled = false;  
+       });
+}
+
+mapBtn.addEventListener('click', event => {
+    mapPopup()
+    document.getElementById("rules").disabled = true;
+    document.getElementById("map").disabled = true;  
+  });
