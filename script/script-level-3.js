@@ -605,67 +605,7 @@ function createGameOverDiv() {
 // -------------------- RESET FUNCTIONS---------------
 
 function reset() {
-    console.log("TRY AGAIN")
-    /*
-    score = 1;
-    displayScore.innerHTML = score;
-    nodeListOfDivs[walker.index].classList.add('chemin')
-    nodeListOfDivs[walker.index].classList.remove('walker-right','walker-left','walker-down','walker-up')
-    walker.index = 483;
-    nodeListOfDivs[walker.index].classList.add('walker-right')
-    window.addEventListener('keydown', moveWalker);
-   // moveWolves()
-    replaceWolves()
-    replaceOpenWall()
-    replaceLife()
-*/
     location.reload(true);
-}
-
-
-
-function replaceWolves(){
-    wolvesArr.forEach(eachWolf => {
-        nodeListOfDivs[eachWolf.index].classList.add(eachWolf.name, 'chemin');
-        nodeListOfDivs[eachWolf.index].classList.remove(eachWolf.name, 'wolf');
-        })
-    merlin.index = 24;
-    perceval.index = 37;
-    karadok.index = 84;
-    lancelot.index = 415;
-    gauvain.index = 435;
-    yvain.index = 457;
-    wolvesArr.forEach(eachWolf => {
-        nodeListOfDivs[eachWolf.index].classList.add(eachWolf.name, 'wolf');
-        })
-}
-
-function replaceOpenWall() {
-    nodeListOfDivs[418].classList.remove('chemin');
-    nodeListOfDivs[418].classList.add('open-wall');
-    nodeListOfDivs[441].classList.remove('chemin');
-    nodeListOfDivs[441].classList.add('open-wall');
-    nodeListOfDivs[432].classList.remove('chemin');
-    nodeListOfDivs[455].classList.add('open-wall');
-    nodeListOfDivs[26].classList.remove('chemin');
-    nodeListOfDivs[49].classList.add('open-wall');
-    nodeListOfDivs[40].classList.remove('chemin');
-    nodeListOfDivs[40].classList.add('open-wall');
-    nodeListOfDivs[63].classList.remove('chemin');
-    nodeListOfDivs[63].classList.add('open-wall');
-    nodeListOfDivs[86].classList.remove('chemin');
-    nodeListOfDivs[86].classList.add('open-wall');
-}
-
-function replaceLife(){
-    nodeListOfDivs[300].classList.remove('chemin');
-    nodeListOfDivs[300].classList.add('life');
-    nodeListOfDivs[33].classList.remove('chemin');
-    nodeListOfDivs[33].classList.add('life');
-    nodeListOfDivs[458].classList.remove('chemin');
-    nodeListOfDivs[458].classList.add('life');
-    nodeListOfDivs[194].classList.remove('chemin');
-    nodeListOfDivs[194].classList.add('wolf-friend');
 }
 
 // ----------------- NEXT LEVEL FUNCTION ------------

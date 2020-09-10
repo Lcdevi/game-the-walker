@@ -483,6 +483,10 @@ body {
   margin: 30px;
 }
 
+
+
+
+
 header {
   display: flex;
   width: 100%;
@@ -497,7 +501,7 @@ header {
   position: relative;
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: raw;
   align-items: center;
   height: 540px;
   border: 1px solid yellow;
@@ -506,7 +510,7 @@ header {
 .ballon {
   position: absolute;
   top: 10px;
-  left: 900px;
+  right: -90px;
   display: flex;
   justify-content: center;
   align-items: center;
