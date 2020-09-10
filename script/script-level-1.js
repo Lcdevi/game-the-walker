@@ -39,6 +39,7 @@ export function level1(nextLevelCallback) {
                 } else if (grid[i][j] === '5') {
                     newDiv.classList.add('walker-right')
                 } else if (grid[i][j] === '10') {
+                    newDiv.classList.add('wall')
                     newDiv.classList.add('exit')
                 }
             }

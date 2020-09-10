@@ -9,11 +9,14 @@ level1(()=>{
     })
 });
 
+let popUp;
+
+
 // ----------------- RULES BUTTON FUNCTION ------------
 const rulesBtn = document.getElementById("rules")
 
 function rulesPopup() {
-   // window.removeEventListener('keydown', moveWalker)
+    //window.removeEventListener('keydown', moveWalker)
     createRulesPopup();
 
 }
@@ -36,9 +39,10 @@ or calm them with the <div id="rules-moon"></div>
     mainDivRulesPart.appendChild(newDiv);
     const crossImg = document.querySelector('.black-cross');
     crossImg.addEventListener('click', event => {
+        popUp = 1;
         console.log("main croix")
         mainDivRulesPart.removeChild(newDiv);
-      //  window.addEventListener('keydown', moveWalker);
+        window.addEventListener('keydown', moveWalker);
         document.getElementById("rules").disabled = false;
         document.getElementById("map").disabled = false;
     });
@@ -49,6 +53,8 @@ rulesBtn.addEventListener('click', event => {
     rulesPopup()
     document.getElementById("rules").disabled = true;
     document.getElementById("map").disabled = true;
+    popUp = 2;
+
 });
 
 
