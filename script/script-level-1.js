@@ -269,7 +269,7 @@ export function level1(nextLevelCallback) {
         })
     }
 
-
+/*
     // ----------------- RULES BUTTON FUNCTION ------------
     const rulesBtn = document.getElementById("rules")
     function rulesPopup() {
@@ -310,7 +310,8 @@ export function level1(nextLevelCallback) {
     });
 
 
-
+*/
+/*
     // ----------------- MAP BUTTON FUNCTION ------------
     const mapBtn = document.getElementById("map")
 
@@ -324,11 +325,12 @@ export function level1(nextLevelCallback) {
         const mainDivMapPart = document.getElementById("game-place");
         newDiv.classList.add("map");
         newDiv.innerHTML +=
-            `<img src="./images/times-solid.svg" alt="black-cross" width='28px' class='black-cross'>
-    <h3> MAAAAP </h3>`
+            `<img src="./images/times-solid-white.svg" alt="black-cross" width='28px' class='black-cross'>
+            <img src="./images/map-02.png" alt="map" class='map-img'>`
         mainDivMapPart.appendChild(newDiv);
         const crossImg = document.querySelector('.black-cross');
         crossImg.addEventListener('click', event => {
+            
             mainDivMapPart.removeChild(newDiv);
             window.addEventListener('keydown', moveWalker);
             document.getElementById("rules").disabled = false;
@@ -341,5 +343,5 @@ export function level1(nextLevelCallback) {
         document.getElementById("rules").disabled = true;
         document.getElementById("map").disabled = true;
     });
-
+    */
 }

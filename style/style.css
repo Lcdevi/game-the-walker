@@ -248,10 +248,18 @@ button:focus {
 
 body {
   background-color: #001a32;
+ /*
+  background: rgb(0,0,0);
+background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,26,50,1) 43%, rgba(42,74,105,1) 69%, rgba(181,198,214,1) 100%);
+*/
   /*
-  background: rgb(0,17,32);
-  background: linear-gradient(180deg, rgba(0,17,32,1) 0%, rgba(0,88,164,1) 72%, rgba(255,255,255,1) 100%);
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,26,50,1) 50%);  
   */
+  /*
+  background: rgb(0,0,0);
+background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,26,50,1) 43%, rgba(42,74,105,1) 69%, rgba(181,198,214,1) 100%);
+*/
 }
 
 .exit {
@@ -259,10 +267,7 @@ body {
   background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,244,0,1) 100%);}
 
 .chemin {
-  /* background-image: url('../images/sand.gif');
-   background-repeat:no-repeat;
-   background-size:cover;
-   */
+ 
    background-color: white;
  
 }
@@ -540,14 +545,13 @@ header {
 }
 
 .map {
-  border:1px solid black;
+  /*
   width: 800px;
-  height: 400px;
+  height: 450px;
+  */
   position: absolute;
-  background-color: white;
   top: calc(100%2);
   left: calc(100%2);
-  padding: 20px;
   font-size: 20px;
 }
 

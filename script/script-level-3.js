@@ -5,7 +5,7 @@ mainContent.classList.add('main-content-level-3');
 
 // ----------------- SCORE DISPLAY AND SCOR INIT ---------------------------------
 let displayScore = document.getElementById('score');
-let score = 1;
+let score = 3;
 displayScore.innerHTML = score;
 
 // ----------------- INIT POSITION OF THE WALKER ---------------------------------
@@ -465,6 +465,9 @@ function createNextLevelDiv() {
     })
 }
 
+
+
+/*
 // ----------------- RULES BUTTON FUNCTION ------------
 const rulesBtn = document.getElementById("rules")
 function rulesPopup(){
@@ -527,11 +530,12 @@ function createMapPopup() {
     const mainDivMapPart = document.getElementById("game-place");
     newDiv.classList.add("map");
     newDiv.innerHTML += 
-    `<img src="./images/times-solid.svg" alt="black-cross" width='28px' class='black-cross'>
-    <h3> MAAAAP </h3>`
+    `<img src="./images/times-solid-white.svg" alt="black-cross" width='28px' class='black-cross'>
+    <img src="./images/map-02.png" alt="map" class='map-img'>`
     mainDivMapPart.appendChild(newDiv);
     const crossImg = document.querySelector('.black-cross');
     crossImg.addEventListener('click', event => {
+        console.log("yo")
         mainDivMapPart.removeChild(newDiv);
         window.addEventListener('keydown', moveWalker);
         wolvesArr.forEach(eachWolf => moveWolves(eachWolf))
@@ -545,5 +549,5 @@ mapBtn.addEventListener('click', event => {
     document.getElementById("rules").disabled = true;
     document.getElementById("map").disabled = true;  
   });
-
+*/
   }
