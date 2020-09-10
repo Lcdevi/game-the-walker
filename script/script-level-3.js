@@ -5,7 +5,7 @@ mainContent.classList.add('main-content-level-3');
 
 // ----------------- SCORE DISPLAY AND SCOR INIT ---------------------------------
 let displayScore = document.getElementById('score');
-let score = 3;
+let score = 1;
 displayScore.innerHTML = score;
 
 // ----------------- INIT POSITION OF THE WALKER ---------------------------------
@@ -31,9 +31,9 @@ const grid = [
     ['0','0','0','0','4','0','0','0','4','0','0','0','0','0','0','4','4','0','4','0','0','4','0'],
     ['0','4','4','4','4','4','4','4','4','4','4','4','4','4','0','0','0','0','4','0','0','4','0'],
     ['0','4','0','0','4','0','0','4','0','0','0','0','0','4','4','4','4','4','4','0','0','4','0'],
-    ['0','4','0','0','4','4','4','4','4','4','0','0','0','0','4','0','0','4','4','4','3','4','0'],
+    ['0','4','0','0','4','4','4','4','3','4','0','0','0','0','4','0','0','4','4','4','3','4','0'],
     ['0','4','0','0','0','4','0','4','0','4','4','4','0','0','4','0','0','4','0','0','0','0','0'],
-    ['0','4','0','0','0','4','0','4','0','4','6','4','4','4','4','0','0','4','0','0','0','0','0'],
+    ['0','4','0','0','0','4','0','4','0','4','6','4','3','4','4','0','0','4','0','0','0','0','0'],
     ['0','4','4','4','4','3','0','4','0','4','4','4','0','4','0','0','0','4','0','0','0','0','0'],
     ['4','4','0','0','0','4','0','4','0','0','0','0','0','4','0','0','0','4','4','4','4','4','4'],
     ['0','4','4','4','4','4','0','4','0','0','0','4','4','4','0','0','0','4','0','0','0','0','0'],
@@ -128,7 +128,31 @@ function moveWalker(event){
             nodeListOfDivs[26].classList.remove('wall'); 
             nodeListOfDivs[49].classList.add('chemin'); 
             nodeListOfDivs[49].classList.remove('wall'); 
-        } 
+        }/* else if (nodeListOfDivs[walker.index+1] === nodeListOfDivs[146]) {
+            nodeListOfDivs[walker.index].classList.remove('walker-right','walker-left','walker-down','walker-up')
+            nodeListOfDivs[walker.index].classList.add('chemin')
+            walker.index = walker.index+1 ;
+            nodeListOfDivs[walker.index].classList.remove('chemin')
+            nodeListOfDivs[walker.index].classList.add('walker-right')            
+            nodeListOfDivs[26].classList.add('chemin'); 
+            nodeListOfDivs[26].classList.remove('wall'); 
+            nodeListOfDivs[49].classList.add('chemin'); 
+            nodeListOfDivs[49].classList.remove('wall'); 
+            nodeListOfDivs[40].classList.add('chemin'); 
+            nodeListOfDivs[40].classList.remove('wall'); 
+            nodeListOfDivs[63].classList.add('chemin'); 
+            nodeListOfDivs[63].classList.remove('wall'); 
+            nodeListOfDivs[86].classList.add('chemin'); 
+            nodeListOfDivs[86].classList.remove('wall'); 
+            nodeListOfDivs[418].classList.add('chemin'); 
+            nodeListOfDivs[418].classList.remove('wall'); 
+            nodeListOfDivs[441].classList.add('chemin'); 
+            nodeListOfDivs[441].classList.remove('wall'); 
+            nodeListOfDivs[432].classList.add('chemin'); 
+            nodeListOfDivs[432].classList.remove('wall');
+            nodeListOfDivs[455].classList.add('chemin'); 
+            nodeListOfDivs[455].classList.remove('wall');  
+        } */
         if (nodeListOfDivs[walker.index] === nodeListOfDivs[252]) {
             nodeListOfDivs[walker.index].classList.add('chemin')
             nodeListOfDivs[walker.index].classList.remove('walker-right','walker-left','walker-down','walker-up')
@@ -164,6 +188,31 @@ function moveWalker(event){
             nodeListOfDivs[49].classList.add('chemin'); 
             nodeListOfDivs[49].classList.remove('wall'); 
         } 
+        /*else if (nodeListOfDivs[walker.index+1] === nodeListOfDivs[196]) {
+            nodeListOfDivs[walker.index].classList.remove('walker-right','walker-left','walker-down','walker-up')
+            nodeListOfDivs[walker.index].classList.add('chemin')
+            walker.index = walker.index+1 ;
+            nodeListOfDivs[walker.index].classList.remove('chemin')
+            nodeListOfDivs[walker.index].classList.add('walker-right')            
+            nodeListOfDivs[26].classList.add('chemin'); 
+            nodeListOfDivs[26].classList.remove('wall'); 
+            nodeListOfDivs[49].classList.add('chemin'); 
+            nodeListOfDivs[49].classList.remove('wall'); 
+            nodeListOfDivs[40].classList.add('chemin'); 
+            nodeListOfDivs[40].classList.remove('wall'); 
+            nodeListOfDivs[63].classList.add('chemin'); 
+            nodeListOfDivs[63].classList.remove('wall'); 
+            nodeListOfDivs[86].classList.add('chemin'); 
+            nodeListOfDivs[86].classList.remove('wall'); 
+            nodeListOfDivs[418].classList.add('chemin'); 
+            nodeListOfDivs[418].classList.remove('wall'); 
+            nodeListOfDivs[441].classList.add('chemin'); 
+            nodeListOfDivs[441].classList.remove('wall'); 
+            nodeListOfDivs[432].classList.add('chemin'); 
+            nodeListOfDivs[432].classList.remove('wall');
+            nodeListOfDivs[455].classList.add('chemin'); 
+            nodeListOfDivs[455].classList.remove('wall');  
+        } */
 
 
     } 
@@ -271,7 +320,7 @@ function beginWolfFriend() {
         nodeListOfDivs[walker.index].classList.add('chemin')
         nodeListOfDivs[walker.index].classList.remove('wolf-friend')
         nodeListOfDivs[walker.index].classList.add('walker-right') 
-        score = score + 10;
+        score = score + 5;
         displayScore.innerHTML = score;
       }
 }
@@ -280,7 +329,7 @@ function beginWolfFriend() {
 function takeLife() {
     if (nodeListOfDivs[walker.index].classList.contains('life')) {
         nodeListOfDivs[walker.index].classList.remove('life')
-        score = score + 2;
+        score = score + 1;
         displayScore.innerHTML = score;
       }
 }
@@ -460,8 +509,9 @@ function createNextLevelDiv() {
     <button id="btn-next-level"> next level => </button>`
     mainDiv.appendChild(newDiv);
     const btnNextLevel = document.getElementById('btn-next-level')
-    btnNextLevel.addEventListener('click', ()=> {
-        console.log("TO THE NEXT LEVEL")
+    btnNextLevel.addEventListener('click', () => {
+        mainDiv.innerHTML = "";
+        nextLevelCallback();
     })
 }
 

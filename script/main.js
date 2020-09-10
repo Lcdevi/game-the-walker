@@ -1,15 +1,17 @@
 import { level1 } from "./script-level-1.js";
 import { level2 } from "./script-level-2.js";
 import { level3 } from "./script-level-3.js";
+import { level4 } from "./script-level-4.js";
 
 
 level1(()=>{
     level2(()=>{
-        level3()
+        level3(()=>{
+            level4()
+        })
     })
 });
 
-let popUp;
 
 
 // ----------------- RULES BUTTON FUNCTION ------------
@@ -39,7 +41,6 @@ or calm them with the <div id="rules-moon"></div>
     mainDivRulesPart.appendChild(newDiv);
     const crossImg = document.querySelector('.black-cross');
     crossImg.addEventListener('click', event => {
-        popUp = 1;
         console.log("main croix")
         mainDivRulesPart.removeChild(newDiv);
      //   window.addEventListener('keydown', moveWalker);
@@ -53,7 +54,7 @@ rulesBtn.addEventListener('click', event => {
     rulesPopup()
     document.getElementById("rules").disabled = true;
     document.getElementById("map").disabled = true;
-    popUp = 2;
+   
 
 });
 

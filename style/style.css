@@ -316,6 +316,16 @@ background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,26,50,1) 43%, rgba(42
     border: 2px solid white;
 }
 
+.main-content-level-4 {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 504px;
+  height: 504px; 
+  border: 2px solid white;
+}
 
 
 .div {
@@ -406,7 +416,7 @@ background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,26,50,1) 43%, rgba(42
   background-size:cover;
 }
 
-.gauvain {
+.gauvain, .gauvain1, .gauvain2, .gauvain3, .gauvain4, .gauvain5, .gauvain6 {
   background-image: url('../images/wolf-tete.gif');
   background-repeat:no-repeat;
   background-size:cover;

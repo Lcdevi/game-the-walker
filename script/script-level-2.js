@@ -5,7 +5,7 @@ export function level2(nextLevelCallback) {
 
     // ----------------- SCORE DISPLAY AND SCOR INIT ---------------------------------
     let displayScore = document.getElementById('score');
-    let score = 2;
+    let score = 1;
     displayScore.innerHTML = score;
 
     // ----------------- INIT POSITION OF THE WALKER ---------------------------------
@@ -176,7 +176,7 @@ export function level2(nextLevelCallback) {
             nodeListOfDivs[walker.index].classList.add('chemin')
             nodeListOfDivs[walker.index].classList.remove('wolf-friend')
             nodeListOfDivs[walker.index].classList.add('walker-right')
-            score = score + 10;
+            score = score + 5;
             displayScore.innerHTML = score;
         }
     }
@@ -185,7 +185,7 @@ export function level2(nextLevelCallback) {
     function takeLife() {
         if (nodeListOfDivs[walker.index].classList.contains('life')) {
             nodeListOfDivs[walker.index].classList.remove('life')
-            score = score + 2;
+            score = score + 1;
             displayScore.innerHTML = score;
         }
     }
