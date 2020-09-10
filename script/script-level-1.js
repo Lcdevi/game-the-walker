@@ -1,6 +1,6 @@
 // Create new script element
-const script = document.createElement('script');
-script.src = './script/script-level-2.js';
+//const script = document.createElement('script');
+//script.src = './script/script-level-1.js';
 
 // Append to the `head` element
 //document.head.appendChild(script);
@@ -14,9 +14,6 @@ mainContent.classList.add('main-content-level-1');
 let displayScore = document.getElementById('score');
 let score = 5;
 displayScore.innerHTML = score;
-//push toutes les divs dans cet array pour pouvoir retrouver chaque div avec un index.
-//const arrayOfDiv = []; 
-// plus besoin de cet array puisque je récupere toutes les div dans une nodelist
 
 
 const walker = {
@@ -28,7 +25,7 @@ const walker = {
 const grid = [
     ['0','0','0','0','0','0','0','0','0','0'],
     ['0','0','0','0','1','0','0','0','0','0'],
-    ['4','4','4','4','4','4','3','4','4','0'],
+    ['4','4','4','4','4','4','3','4','4','10'],
     ['0','0','0','0','0','0','0','0','0','0']
 ];
 
@@ -51,7 +48,9 @@ function createGrid() {
           newDiv.classList.add('open-wall')
         } else if (grid[i][j] === '5') {
           newDiv.classList.add('walker-right')   
-        } 
+        } else if (grid[i][j] === '10') {
+            newDiv.classList.add('exit')   
+          } 
       }
     }
 }
@@ -247,7 +246,7 @@ window.addEventListener('keydown', moveWalker);
 function takeLife() {
     if (nodeListOfDivs[walker.index].classList.contains('life')) {
         nodeListOfDivs[walker.index].classList.remove('life')
-        score = score + 5;
+        score = score + 2;
         displayScore.innerHTML = score;
       }
 }
@@ -268,13 +267,25 @@ function createNextLevelDiv() {
     <p> Well, you're still alive, you can move on </p>
     <button id="btn-next-level"> next level => </button>`
     mainDiv.appendChild(newDiv);
+
+    const child = document.querySelectorAll('.div')
+    console.log("tototototo")
+    console.log(child)
+
     const btnNextLevel = document.getElementById('btn-next-level')
     btnNextLevel.addEventListener('click', ()=> {
-      //  document.head.appendChild(script);
-      //  script.addEventListener('load', function() {
-            console.log("TO THE NEXT LEVEL")
-      //      mainDiv.removeChild(newDiv);
-      //  });
+        mainDiv.removeChild(newDiv);
+        const script = document.createElement('script');
+        script.src = './script/script-level-2.js';
+        
+       // mainDiv.removeChild(child);
+        
+        script.addEventListener('load', function() {
+
+           console.log("olé")
+
+        });
+        document.head.appendChild(script);
 
     })
 }

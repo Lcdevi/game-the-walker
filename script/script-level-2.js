@@ -171,7 +171,7 @@ function beginWolfFriend() {
         nodeListOfDivs[walker.index].classList.add('chemin')
         nodeListOfDivs[walker.index].classList.remove('wolf-friend')
         nodeListOfDivs[walker.index].classList.add('walker-right') 
-        score = score + 50;
+        score = score + 10;
         displayScore.innerHTML = score;
       }
 }
@@ -180,7 +180,7 @@ function beginWolfFriend() {
 function takeLife() {
     if (nodeListOfDivs[walker.index].classList.contains('life')) {
         nodeListOfDivs[walker.index].classList.remove('life')
-        score = score + 5;
+        score = score + 2;
         displayScore.innerHTML = score;
       }
 }
