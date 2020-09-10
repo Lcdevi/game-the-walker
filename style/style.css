@@ -254,6 +254,9 @@ body {
   */
 }
 
+.exit {
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,244,0,1) 100%);}
 
 .chemin {
   /* background-image: url('../images/sand.gif');
@@ -507,8 +510,8 @@ header {
 
 .ballon {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 110px;
+  left: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -590,6 +593,7 @@ h3 {
 }
 
 #title {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -600,6 +604,3 @@ h3 {
 	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
-.exit {
-  background-color: red;
-}

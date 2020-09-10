@@ -26,7 +26,7 @@ export function level2(nextLevelCallback) {
 
     const grid = [
         ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
-        ['4', '4', '0', '0', '0', '0', '0', '0', '0', '0', '4', '4'],
+        ['4', '4', '0', '0', '0', '0', '0', '0', '0', '0', '4', '10'],
         ['0', '4', '0', '1', '4', '0', '0', '0', '0', '0', '4', '0'],
         ['0', '4', '0', '4', '4', '4', '4', '4', '4', '4', '4', '0'],
         ['0', '4', '0', '0', '0', '0', '4', '0', '0', '0', '0', '0'],
@@ -58,6 +58,9 @@ export function level2(nextLevelCallback) {
                     newDiv.classList.add('open-wall')
                 } else if (grid[i][j] === '5') {
                     newDiv.classList.add('walker-right')
+                } else if (grid[i][j] === '10') {
+                    newDiv.classList.add('exit')
+                    newDiv.classList.add('chemin')
                 }
             }
         }
