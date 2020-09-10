@@ -1,4 +1,4 @@
-//export function level3 (nextLevelCallback) {
+export function level3 (nextLevelCallback) {
 
 const mainContent = document.querySelector('.main-content');
 mainContent.classList.add('main-content-level-3');
@@ -616,4 +616,4 @@ mapBtn.addEventListener('click', event => {
     document.getElementById("map").disabled = true;  
   });
 */
-  //}
+  }
