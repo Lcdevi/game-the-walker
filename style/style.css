@@ -266,6 +266,11 @@ background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,26,50,1) 43%, rgba(42
   background: rgb(255,255,255);
   background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,244,0,1) 100%);}
 
+.exit-left {
+  background: rgb(255,255,255);
+  background: linear-gradient(270deg, rgba(255,255,255,1) 9%, rgba(255,244,0,1) 100%);
+}
+
 .chemin {
  
    background-color: white;
@@ -358,8 +363,13 @@ background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,26,50,1) 43%, rgba(42
 }
 
 .open-wall {
+  /*
   background: rgb(226,102,0);
   background: linear-gradient(180deg, rgba(226,102,0,1) 28%, rgba(255,255,255,1) 100%);
+  */
+  background-image: url('../images/trappe.png');
+  background-repeat:no-repeat;
+  background-size:cover;
 }
 
 .walker-right {

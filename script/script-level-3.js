@@ -1,4 +1,4 @@
-export function level3 (nextLevelCallback) {
+//export function level3 (nextLevelCallback) {
 
 const mainContent = document.querySelector('.main-content');
 mainContent.classList.add('main-content-level-3');
@@ -31,9 +31,9 @@ const grid = [
     ['0','0','0','0','4','0','0','0','4','0','0','0','0','0','0','4','4','0','4','0','0','4','0'],
     ['0','4','4','4','4','4','4','4','4','4','4','4','4','4','0','0','0','0','4','0','0','4','0'],
     ['0','4','0','0','4','0','0','4','0','0','0','0','0','4','4','4','4','4','4','0','0','4','0'],
-    ['0','4','0','0','4','4','4','4','3','4','0','0','0','0','4','0','0','4','4','4','3','4','0'],
+    ['0','4','0','0','4','4','4','4','0','0','0','0','0','0','4','0','0','4','4','4','3','4','0'],
     ['0','4','0','0','0','4','0','4','0','4','4','4','0','0','4','0','0','4','0','0','0','0','0'],
-    ['0','4','0','0','0','4','0','4','0','4','6','4','3','4','4','0','0','4','0','0','0','0','0'],
+    ['0','4','0','0','0','4','0','4','4','4','6','4','4','4','4','0','0','4','0','0','0','0','0'],
     ['0','4','4','4','4','3','0','4','0','4','4','4','0','4','0','0','0','4','0','0','0','0','0'],
     ['4','4','0','0','0','4','0','4','0','0','0','0','0','4','0','0','0','4','4','4','4','4','4'],
     ['0','4','4','4','4','4','0','4','0','0','0','4','4','4','0','0','0','4','0','0','0','0','0'],
@@ -395,8 +395,24 @@ const gauvain = new Wolf({
     speed: 200
 }); 
 
+const gauvain1 = new Wolf({
+    name: "gauvain",
+    wolfX: 9,
+    wolfY: 3,
+    index: 210,
+    speed: 240
+}); 
+
+const gauvain2 = new Wolf({
+    name: "gauvain",
+    wolfX: 9,
+    wolfY: 11,
+    index: 218,
+    speed: 300
+}); 
+
 let wolvesArr = []; // empty array to push the wolves and loop over to create them
-wolvesArr.push(merlin, perceval, karadok, lancelot, yvain, gauvain)
+wolvesArr.push(merlin, perceval, karadok, lancelot, yvain, gauvain, gauvain1, gauvain2)
 
 
 
@@ -600,4 +616,4 @@ mapBtn.addEventListener('click', event => {
     document.getElementById("map").disabled = true;  
   });
 */
-  }
+  //}

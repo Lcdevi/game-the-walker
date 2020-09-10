@@ -77,7 +77,7 @@ function createGrid() {
         } else if (grid[i][j] === '6') {
           newDiv.classList.add('wolf-friend')   
         } else if (grid[i][j] === '10') {
-            newDiv.classList.add('exit')
+            newDiv.classList.add('exit-left')
             newDiv.classList.add('chemin')
         }
       }
