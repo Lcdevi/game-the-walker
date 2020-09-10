@@ -98,7 +98,7 @@ function moveWalker(event){
 
     if (event.key === 'ArrowRight') { 
         console.log('right press');
-        if (nodeListOfDivs[walker.index] === nodeListOfDivs[250] && !nodeListOfDivs[336].classList.contains('life')) {
+        if (nodeListOfDivs[walker.index] === nodeListOfDivs[250] && !nodeListOfDivs[336].classList.contains('wolf-friend')) {
                 nextLevel();
         }
      
