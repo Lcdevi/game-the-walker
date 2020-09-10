@@ -3,7 +3,7 @@ mainContent.classList.add('main-content-level-2');
 
 // ----------------- SCORE DISPLAY AND SCOR INIT ---------------------------------
 let displayScore = document.getElementById('score');
-let score = 10;
+let score = 1;
 displayScore.innerHTML = score;
 
 // ----------------- INIT POSITION OF THE WALKER ---------------------------------
@@ -71,11 +71,14 @@ console.log(nodeListOfDivs)
 
 // -------------------- RUN THE WALKER WITH ARROWS KEYS ----------------------------
 
-window.addEventListener('keydown', (event) => {
+window.addEventListener('keydown', moveWalker )
+
+function moveWalker(event){
+
     if (event.key === 'ArrowRight') { 
         console.log('right press');
         if (nodeListOfDivs[walker.index] === nodeListOfDivs[23] && !nodeListOfDivs[27].classList.contains('life')) {
-            alert("you win, you can go to the next level")
+            nextLevel();
         }
      
         if (nodeListOfDivs[walker.index+1].classList.contains('chemin')
@@ -155,8 +158,11 @@ window.addEventListener('keydown', (event) => {
     } 
     beginWolfFriend();
     takeLife();
+    gameOver();
 }
-);
+
+window.addEventListener('keydown', moveWalker);
+
 
 // -------- CREATE A FUNCTION FOR THE MOMENT WHERE THE WALKER TAKES THE PINK SQUARE ------------------
 function beginWolfFriend() {
@@ -178,99 +184,6 @@ function takeLife() {
         displayScore.innerHTML = score;
       }
 }
-
-/*
-window.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowRight') { 
-        console.log('right press');
-        if (nodeListOfDivs[walker.index] === nodeListOfDivs[23] && !nodeListOfDivs[27].classList.contains('life')) {
-            alert("you win, you can go to the next level")
-        }
-     
-        if (nodeListOfDivs[walker.index+1].classList.contains('chemin')||nodeListOfDivs[walker.index+1].classList.contains('life')) {
-        nodeListOfDivs[walker.index].classList.remove('walker');
-        nodeListOfDivs[walker.index].classList.add('chemin');
-        console.log(walker.index)
-            console.log("--------------------")
-        walker.index += 1;
-        nodeListOfDivs[walker.index].classList.add('walker');
-        nodeListOfDivs[walker.index].classList.remove('chemin');  
-        console.log(walker.index)
-            } 
-            
-    } 
-
-    if (event.key === 'ArrowLeft') { 
-        console.log('left press');
-        if (nodeListOfDivs[walker.index] === nodeListOfDivs[12]) {
-            nodeListOfDivs[walker.index].classList.add('chemin')
-            nodeListOfDivs[walker.index].classList.remove('walker')
-            walker.index = 96;
-            nodeListOfDivs[walker.index].classList.add('walker')
-        }
-        if (nodeListOfDivs[walker.index-1].classList.contains('chemin')) {
-            nodeListOfDivs[walker.index].classList.remove('walker')
-            nodeListOfDivs[walker.index].classList.add('chemin')
-            walker.index -= 1;
-            nodeListOfDivs[walker.index].classList.add('walker')
-            nodeListOfDivs[walker.index].classList.remove('chemin')
-        } else if (nodeListOfDivs[walker.index-1].classList.contains('open-wall')) {
-            nodeListOfDivs[walker.index].classList.remove('walker')
-            nodeListOfDivs[walker.index].classList.add('chemin')
-            walker.index -= 1;
-            nodeListOfDivs[walker.index].classList.add('walker')
-            nodeListOfDivs[82].classList.add('chemin'); 
-            nodeListOfDivs[82].classList.remove('wall'); 
-            nodeListOfDivs[81].classList.add('chemin'); 
-            nodeListOfDivs[81].classList.remove('wall'); 
-        }
-        if (nodeListOfDivs[walker.index-1].classList.contains('life')) {
-            nodeListOfDivs[walker.index].classList.remove('walker')
-            nodeListOfDivs[walker.index].classList.add('chemin')
-            walker.index -= 1;
-            nodeListOfDivs[walker.index].classList.add('walker')
-            nodeListOfDivs[27].classList.remove('life');
-            score = score + 5;
-            displayScore.innerHTML = score;
-        }
-
-
-    } 
-
-    if (event.key === 'ArrowUp') { 
-        console.log('up press');
-        if (nodeListOfDivs[walker.index-12].classList.contains('chemin')) {
-            nodeListOfDivs[walker.index].classList.remove('walker')
-            nodeListOfDivs[walker.index].classList.add('chemin')
-            walker.index = walker.index-12 ;
-            nodeListOfDivs[walker.index].classList.remove('chemin')
-            nodeListOfDivs[walker.index].classList.add('walker')
-        }  
-        if (nodeListOfDivs[walker.index-12].classList.contains('life')) {
-            nodeListOfDivs[walker.index].classList.remove('walker')
-            nodeListOfDivs[walker.index].classList.add('chemin')     
-            walker.index = walker.index-12 ;
-            nodeListOfDivs[walker.index].classList.add('walker')
-            nodeListOfDivs[27].classList.remove('life');
-            score = score + 5;
-            displayScore.innerHTML = score;
-        }
-    } 
-    
-    if (event.key === 'ArrowDown') { 
-        console.log('down press');
-        if (nodeListOfDivs[walker.index+12].classList.contains('chemin')) {
-            nodeListOfDivs[walker.index].classList.remove('walker')
-            nodeListOfDivs[walker.index].classList.add('chemin')
-            walker.index = walker.index+12 ;
-            nodeListOfDivs[walker.index].classList.remove('chemin')
-            nodeListOfDivs[walker.index].classList.add('walker')
-        }
-    } 
-
-}
-);
-*/
 
 // -------------- CREATE THE WOLF CONSTRUCTOR -----------------
 
@@ -346,31 +259,144 @@ function moveWolves(wolf){
         score = score - 1;
         displayScore.innerHTML = score;
     }
+    gameOver();
   }, wolf.speed) // speed of the set interval function
 }
 
+// -------------------- GAME OVER FUNCTION ---------------
 
+function gameOver(){
+    if(score<=0){
+     window.removeEventListener('keydown', moveWalker);
+     createGameOverDiv();
+         setTimeout(() => {    
+             wolvesArr.forEach(wolf => clearInterval(wolf.timerId))
+         }, 500);   
+     }
+ }
+ 
+ function createGameOverDiv() {
+     if(!document.querySelector('.game-over')) {
+         const newDiv = document.createElement('div');
+         const mainDiv = document.querySelector(".main-content");
+         newDiv.classList.add("game-over");
+         newDiv.innerHTML = 
+         `<img src="./images/wolf-bad.png" alt="" width="30%">
+         <h1> GAME OVER </h1>
+         <button id="try-again-btn"> => try again <= </button>`
+         mainDiv.appendChild(newDiv);
+         const btnTryAgain = document.getElementById('try-again-btn')
+         btnTryAgain.addEventListener('click', reset)
+     
+     }
+ }
 
-// request Animation Frame
-/*
-function moveWolves() {
-    const directions = [-1, +1, -12, +12];
-    let direction = directions[Math.floor(Math.random() * directions.length)];
-    console.log(direction)
-    //if in the next square merlin is going to go to does not have a wall
-    if (!nodeListOfDivs[merlin.index + direction].classList.contains('wall')) {
-         //remove the ghosts classes
-         nodeListOfDivs[merlin.index].classList.remove(merlin.name)
-         nodeListOfDivs[merlin.index].classList.remove('wolf')
-         nodeListOfDivs[merlin.index].classList.add('chemin')
-        //move into that space
-        merlin.index += direction;
-        nodeListOfDivs[merlin.index].classList.add(merlin.name, 'wolf')
-        nodeListOfDivs[merlin.index].classList.remove('chemin')
+ // -------------------- RESET FUNCTIONS---------------
 
-    } else {direction = directions[Math.floor(Math.random() * directions.length)]};
+function reset() {
+    location.reload(true);
+}
 
-      requestAnimationFrame(moveWolves);
-    }
-    moveWolves();
-    */
+// ----------------- NEXT LEVEL FUNCTION ------------
+function nextLevel(){
+    window.removeEventListener('keydown', moveWalker)
+    createNextLevelDiv()
+    setTimeout(() => {
+        wolvesArr.forEach(wolf => clearInterval(wolf.timerId))
+    }, 500);
+         
+     }
+
+function createNextLevelDiv() {
+    const newDiv = document.createElement('div');
+    const mainDiv = document.querySelector(".main-content");
+    newDiv.classList.add("next-level");
+    newDiv.innerHTML += 
+    `<img src="./images/sylvain-trans.png" alt="" width="30%">
+    <p> Well, you're still alive, you can move on </p>
+    <button id="btn-next-level"> next level => </button>`
+    mainDiv.appendChild(newDiv);
+    const btnNextLevel = document.getElementById('btn-next-level')
+    btnNextLevel.addEventListener('click', ()=> {
+        console.log("TO THE NEXT LEVEL")
+    })
+}
+
+// ----------------- RULES BUTTON FUNCTION ------------
+const rulesBtn = document.getElementById("rules")
+function rulesPopup(){
+    window.removeEventListener('keydown', moveWalker)
+    createRulesPopup();
+    setTimeout(() => {
+        wolvesArr.forEach(wolf => clearInterval(wolf.timerId))
+    }, 500);
+         
+     }
+
+function createRulesPopup() {
+    const newDiv = document.createElement('div');
+    const mainDivRulesPart = document.getElementById("game-place");
+    newDiv.classList.add("rules");
+    newDiv.innerHTML += 
+    `<img src="./images/times-solid.svg" alt="black-cross" width='25px' class='black-cross'>
+    <h3> THE RULES </h3>
+    <br><br>
+    <p> Take all the<div id="rules-life"></div>
+    <br>
+    Be careful of the <div id="rules-wolf"></div>
+    <br><br>
+    or calm them with the <div id="rules-moon"></div>
+    </p>
+    `
+    mainDivRulesPart.appendChild(newDiv);
+    const crossImg = document.querySelector('.black-cross');
+    crossImg.addEventListener('click', event => {
+        mainDivRulesPart.removeChild(newDiv);
+        window.addEventListener('keydown', moveWalker);
+        wolvesArr.forEach(eachWolf => moveWolves(eachWolf))
+        document.getElementById("rules").disabled = false;
+        document.getElementById("map").disabled = false;  
+       });
+}
+
+rulesBtn.addEventListener('click', event => {
+    rulesPopup()
+    document.getElementById("rules").disabled = true;
+    document.getElementById("map").disabled = true;  
+  });
+
+  // ----------------- MAP BUTTON FUNCTION ------------
+const mapBtn = document.getElementById("map")
+
+function mapPopup(){
+    window.removeEventListener('keydown', moveWalker)
+    createMapPopup();
+    setTimeout(() => {
+        wolvesArr.forEach(wolf => clearInterval(wolf.timerId))
+    }, 500);
+         
+     }
+
+function createMapPopup() {
+    const newDiv = document.createElement('div');
+    const mainDivMapPart = document.getElementById("game-place");
+    newDiv.classList.add("map");
+    newDiv.innerHTML += 
+    `<img src="./images/times-solid.svg" alt="black-cross" width='28px' class='black-cross'>
+    <h3> MAAAAP </h3>`
+    mainDivMapPart.appendChild(newDiv);
+    const crossImg = document.querySelector('.black-cross');
+    crossImg.addEventListener('click', event => {
+        mainDivMapPart.removeChild(newDiv);
+        window.addEventListener('keydown', moveWalker);
+        wolvesArr.forEach(eachWolf => moveWolves(eachWolf))
+        document.getElementById("rules").disabled = false;
+        document.getElementById("map").disabled = false;  
+       });
+}
+
+mapBtn.addEventListener('click', event => {
+    mapPopup()
+    document.getElementById("rules").disabled = true;
+    document.getElementById("map").disabled = true;  
+  });
