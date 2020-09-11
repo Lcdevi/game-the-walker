@@ -3,6 +3,14 @@ export function level2(nextLevelCallback) {
     const mainContent = document.querySelector('.main-content');
     mainContent.classList.add('main-content-level-2');
 
+    // -------------------- AUDIO ---------------------------------------------------
+
+    const audioWaterDrop = new Audio(('../sounds/drop-02.mp3'));
+    console.log(audioWaterDrop)
+    const audioWall = new Audio(('../sounds/the-legend-of-zelda-solving-secret-sound.mp3'));
+    console.log(audioWall)
+
+
     // ----------------- SCORE DISPLAY AND SCOR INIT ---------------------------------
     let displayScore = document.getElementById('score');
     let score = 1;
@@ -186,6 +194,7 @@ export function level2(nextLevelCallback) {
         if (nodeListOfDivs[walker.index].classList.contains('life')) {
             nodeListOfDivs[walker.index].classList.remove('life')
             score = score + 1;
+            audioWaterDrop.play();
             displayScore.innerHTML = score;
         }
     }
@@ -311,6 +320,7 @@ export function level2(nextLevelCallback) {
     function nextLevel() {
         window.removeEventListener('keydown', moveWalker)
         createNextLevelDiv()
+        audioWall.play();
         setTimeout(() => {
             wolvesArr.forEach(wolf => clearInterval(wolf.timerId))
         }, 500);
