@@ -4,9 +4,9 @@ export function level1(nextLevelCallback) {
 
         // -------------------- AUDIO ---------------------------------------------------
 
-        const audioWaterDrop = new Audio(('../sounds/drop-02.mp3'));
+        const audioWaterDrop = new Audio(('./sounds/drop-02.mp3'));
        
-        const audioWall = new Audio(('../sounds/the-legend-of-zelda-solving-secret-sound.mp3'));
+        const audioWall = new Audio(('./sounds/the-legend-of-zelda-solving-secret-sound.mp3'));
        
     
     
